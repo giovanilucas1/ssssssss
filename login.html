@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me Namora?!</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            padding: 20px;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+        }
+
+        .modal-content img, .modal-content video {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #ff4b5c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #ff2e3e;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="musicafundo.weba" type="audio/webm">
+        Seu navegador não suporta áudio embutido.
+    </audio>
+
+    <div class="container">
+        <h2>Eu te amo muito Gi, fica longe de mim não! Você é meu mundo!</h2>
+        <p>Eu sei que te magoei, eu me arrependo muito eu não tava bem e não fui um "homem" de verdade por não ter contado o que eu tava passando, mas to aqui tentando me redimir pois eu te amo, e não quero ficar sem você, você é a mulher da minha vida! Não vou conseguir ficar sem minha menininha, minha princesa, ou melhor, minha futura esposa!</p>
+        <button id="viewMoments">Ver momentos</button>
+    </div>
+
+    <div class="modal" id="photoModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="mural">
+                <img src="amor1.jpg" alt="Foto 1">
+                <img src="amor2.jpg" alt="Foto 2">
+                <video controls>
+                    <source src="amor3.mp4" type="video/mp4">
+                    Seu navegador não suporta o vídeo.
+                </video>
+                <img src="amor5.jpeg" alt="Foto 3">
+                <img src="amor6.jpeg" alt="Foto 4">
+                <img src="amor7.jpeg" alt="Foto 5">
+                <img src="amor8.jpeg" alt="Foto 6">
+                <video controls>
+                    <source src="amor9.mp4" type="video/mp4">
+                    Seu navegador não suporta o vídeo.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('viewMoments').addEventListener('click', function () {
+            document.getElementById('photoModal').style.display = 'flex';
+        });
+
+        document.getElementById('closeModal').addEventListener('click', function () {
+            document.getElementById('photoModal').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
