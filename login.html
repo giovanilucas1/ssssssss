@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Me Namora?!</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -12,57 +12,61 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #ff7eb3, #ff758c);
+            justify-content: start;
+            background: url('ceu-estrelado.jpg') no-repeat center center/cover;
             padding: 20px;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         .container {
             text-align: center;
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #ff4b5c;
+        }
+
+        p {
+            font-family: Arial, sans-serif;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .story-container {
+            display: flex;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
         }
 
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 90%;
-            max-height: 90%;
-            overflow-y: auto;
-        }
-
-        .modal-content img, .modal-content video {
+        .story-item {
+            display: none;
             width: 100%;
             max-width: 400px;
+            height: auto;
             border-radius: 10px;
-            margin-bottom: 15px;
         }
 
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
+        .story-item.active {
+            display: block;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         button {
@@ -79,49 +83,136 @@
         button:hover {
             background-color: #ff2e3e;
         }
+
+        .history-section {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .history-section h2 {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            color: #ff4b5c;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .history-item {
+            text-align: center;
+        }
+
+        .history-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .history-item p {
+            font-size: 0.9rem;
+            color: #333;
+        }
     </style>
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="musicafundo.weba" type="audio/webm">
-        Seu navegador não suporta áudio embutido.
-    </audio>
-
     <div class="container">
-        <h2>Eu te amo muito Gi, fica longe de mim não! Você é meu mundo!</h2>
-        <p>Eu sei que te magoei, eu me arrependo muito eu não tava bem e não fui um "homem" de verdade por não ter contado o que eu tava passando, mas to aqui tentando me redimir pois eu te amo, e não quero ficar sem você, você é a mulher da minha vida! Não vou conseguir ficar sem minha menininha, minha princesa, ou melhor, minha futura esposa!</p>
-        <button id="viewMoments">Ver momentos</button>
+        <h2>Eu te amo muito ❤️, Gi!</h2>
+        <p>Eu sei que te magoei, eu me arrependo muito. Eu não tava bem e não fui um "homem" de verdade por não ter contado o que eu tava passando. Estou aqui tentando me redimir, porque te amo e não quero ficar sem você. Você é a mulher da minha vida! Não vou conseguir ficar sem minha menininha, minha princesa, ou melhor, minha futura esposa! 💖</p>
+        <button id="viewMoments">Ver Momentos</button>
     </div>
 
+    <!-- Modal Ver Momentos -->
     <div class="modal" id="photoModal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
-            <div class="mural">
-                <img src="amor1.jpg" alt="Foto 1">
-                <img src="amor2.jpg" alt="Foto 2">
-                <video controls>
+            <div class="story-container">
+                <img class="story-item active" src="amor1.jpg" alt="Foto 1">
+                <img class="story-item" src="amor2.jpg" alt="Foto 2">
+                <video class="story-item" controls>
                     <source src="amor3.mp4" type="video/mp4">
                     Seu navegador não suporta o vídeo.
                 </video>
-                <img src="amor5.jpeg" alt="Foto 3">
-                <img src="amor6.jpeg" alt="Foto 4">
-                <img src="amor7.jpeg" alt="Foto 5">
-                <img src="amor8.jpeg" alt="Foto 6">
-                <video controls>
-                    <source src="amor9.mp4" type="video/mp4">
-                    Seu navegador não suporta o vídeo.
-                </video>
+                <img class="story-item" src="amor5.jpeg" alt="Foto 3">
+                <img class="story-item" src="amor6.jpeg" alt="Foto 4">
+                <img class="story-item" src="amor7.jpeg" alt="Foto 5">
             </div>
         </div>
     </div>
 
+    <!-- Nossa História -->
+    <section class="history-section">
+        <h2>Nossa História</h2>
+        <div class="history-grid">
+            <div class="history-item">
+                <img src="amor11.jpg" alt="Primeiro Encontro">
+                <p>Dia da Eleição loka kkk</p>
+            </div>
+            <div class="history-item">
+                <img src="amor12.jpg" alt="Nosso Passeio">
+                <p>Como amo essa mulher! Olha que perfeição</p>
+            </div>
+            <div class="history-item">
+                <img src="amor13.jpg" alt="Férias">
+                <p>Só pra mostrar como você e linda!</p>
+            </div>
+            <div class="history-item">
+                <img src="amor15.jpg" alt="Um momento doce">
+                <p>Sdds de deitar nos seus peitos</p>
+            </div>
+            <div class="history-item">
+                <img src="amor16.jpg" alt="Festa de aniversário">
+                <p>Amei esse dia</p>
+            </div>
+            <div class="history-item">
+                <img src="amo10.jpg" alt="Nosso selfie">
+                <p>Primeira festa do sicoo que te levei e pretendo levar mais, mas infelsmente no dia seguinte fiz uma das piores escolhas da minha vida,
+					aonde me arrependo até agora, me da vontade de voltar no passado e me bater até eu ficar em coma, ai eu acabava descansando um pouco minha cabeça.
+				</p>
+            </div>
+        </div>
+    </section>
+
     <script>
-        document.getElementById('viewMoments').addEventListener('click', function () {
-            document.getElementById('photoModal').style.display = 'flex';
+        const modal = document.getElementById('photoModal');
+        const closeModal = document.getElementById('closeModal');
+        const viewMomentsButton = document.getElementById('viewMoments');
+        const storyItems = document.querySelectorAll('.story-item');
+        let currentStoryIndex = 0;
+        let storyInterval;
+
+        function showNextStory() {
+            storyItems[currentStoryIndex].classList.remove('active');
+            currentStoryIndex = (currentStoryIndex + 1) % storyItems.length;
+            storyItems[currentStoryIndex].classList.add('active');
+        }
+
+        viewMomentsButton.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            storyInterval = setInterval(showNextStory, 3000);
         });
 
-        document.getElementById('closeModal').addEventListener('click', function () {
-            document.getElementById('photoModal').style.display = 'none';
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            clearInterval(storyInterval);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                modal.style.display = 'none';
+                clearInterval(storyInterval);
+            }
         });
     </script>
 </body>
